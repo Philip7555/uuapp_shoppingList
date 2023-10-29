@@ -30,6 +30,7 @@
     "initialize": "Inicializovat"
   },
   "Menu": {
+    "shoppinglist": "Nakupní seznam",
     "home": "Vítejte",
     "about": "O aplikaci"
   }
