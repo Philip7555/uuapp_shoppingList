@@ -1,4 +1,112 @@
-//@@viewOn:imports
+import { Utils, createVisualComponent, useState, useRoute } from "uu5g05";
+import { withRoute } from "uu_plus4u5g02-app";
+
+import Uu5Tiles from "uu5tilesg02";
+import Uu5TilesElements from "uu5tilesg02-elements";
+
+import Tile from "../bricks/listofshopinglists/tile.js";
+
+import Config from "./config/config.js";
+import RouteBar from "../core/route-bar.js";
+import ShoppinglistList from "../bricks/listofshopinglists/shopping-list.js";
+import ShoppingList from "./ShoppingList.js"
+
+//@@viewOff:imports
+
+//@@viewOn:constants
+const DATA = [
+   {
+    id: "cd8f0b01",
+    name: "Kaufland",
+    archived: false,
+    memberList: [{ id: "m01", name: "Karel Omáčka" },{ id: "6283-1164-2812-0000", name: "Philip Ernst" }],
+    itemList: [
+      { id: Utils.String.generateId(), name: "Cukr" },
+      { id: Utils.String.generateId(), name: "Mouka", checked: true },
+    ],
+    owner: { id: "8156-5151-6521-0000", name: "Ivo Milota" },
+  },
+  {
+    id: "cd8f0b02",
+    name: "Lidl",
+    archived: false,
+    memberList: [{ id: "m01", name: "Karel Omáčka" },{ id: "8156-5151-6521-0000", name: "Ivo Milota" }],
+    itemList: [
+      { id: Utils.String.generateId(), name: "Cukr" },
+      { id: Utils.String.generateId(), name: "Rajčata" },
+      { id: Utils.String.generateId(), name: "Mozerela", checked: true },
+    ],
+    owner: { id: "6283-1164-2812-0000", name: "Philip Ernst" },
+  }
+];
+
+
+//@@viewOff:constants
+
+//@@viewOn:css
+//@@viewOff:css
+
+//@@viewOn:helpers
+//@@viewOff:helpers
+
+let TilesExample = createVisualComponent({
+  //@@viewOn:statics
+  uu5Tag: Config.TAG + "TilesExample",
+  //@@viewOff:statics
+
+  //@@viewOn:propTypes
+  propTypes: {},
+  //@@viewOff:propTypes
+
+  //@@viewOn:defaultProps
+  defaultProps: {},
+  //@@viewOff:defaultProps
+
+  render(props) {
+    //@@viewOn:private
+    const [, setRoute] = useRoute();
+    //@@viewOff:private
+    //@@viewOn:interface
+    //@@viewOff:interface
+
+    //@@viewOn:render
+    const attrs = Utils.VisualComponent.getAttrs(props);
+    return(
+      <div {...attrs}>
+      <RouteBar />
+      <div className={Config.Css.css({ padding: "16px 32px" })}>
+        <ShoppinglistList />
+      </div>
+    </div>
+    )
+    /*
+    return (
+      <div {...attrs}>
+        
+        <RouteBar />
+        <div className={Config.Css.css({ padding: "16px 32px" })}>
+          <Uu5Tiles.ControllerProvider 
+          data={DATA}
+          onClick={setRoute("about")}
+          >
+            <Uu5TilesElements.Grid tileMinWidth={100} tileMaxWidth={200}>
+              {Tile}
+            </Uu5TilesElements.Grid>
+          </Uu5Tiles.ControllerProvider>
+        </div>
+      </div>
+    );
+    */
+    //@@viewOff:render
+  },
+});
+
+TilesExample = withRoute(TilesExample, { authenticated: true });
+
+//@@viewOn:exports
+export { TilesExample };
+export default TilesExample;
+/*//@@viewOn:imports
 import { Utils, createVisualComponent, useSession, Lsi } from "uu5g05";
 import Uu5Elements from "uu5g05-elements";
 import Plus4U5Elements from "uu_plus4u5g02-elements";
@@ -89,3 +197,4 @@ Home = withRoute(Home, { authenticated: true });
 export { Home };
 export default Home;
 //@@viewOff:exports
+*/

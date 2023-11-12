@@ -1,12 +1,9 @@
 //@@viewOn:imports
-import { createVisualComponent, useSession} from "uu5g05";
-import { useSubAppData, useSystemData } from "uu_plus4u5g02"
+import { createVisualComponent, Utils} from "uu5g05";
 import { withRoute } from "uu_plus4u5g02-app";
 import Config from "./config/config.js";
 import RouteBar from "../core/route-bar";
-import ListProvider from "../bricks/shopinglistdetail/list-provider";
-import ListView from "../bricks/shopinglistdetail/list-view";
-import CreateView from "../bricks/shopinglistdetail/create-view";
+import ShoppingListDetail from "../bricks/shopinglistdetail/shopping-list-detail.js";
 //@@viewOff:imports
 
 let ShoppingList = createVisualComponent({
@@ -14,20 +11,16 @@ let ShoppingList = createVisualComponent({
   uu5Tag: Config.TAG + "ShoppingList",
   //@@viewOff:statics
 
-  render() {
+  render(props) {
     //@@viewOn:render
+    const attrs = Utils.VisualComponent.getAttrs(props);
     return (
-      <>
-        <RouteBar />
-        <ListProvider>
-          {({ itemList, remove, rename, create, revalue }) => (
-            <>
-              <CreateView onCreate={create} style={{ maxWidth: 400, margin: "24px auto", display: "block" }} />
-              <ListView itemList={itemList} onDelete={remove} onRename={rename} onValue={revalue} />
-            </>
-          )}
-        </ListProvider>
-      </>
+      <div {...attrs}>
+      <RouteBar />
+      <div className={Config.Css.css({ padding: "16px 32px" })}>
+        <ShoppingListDetail {...props.params} />
+      </div>
+    </div>
     );
     //@@viewOff:render
   },

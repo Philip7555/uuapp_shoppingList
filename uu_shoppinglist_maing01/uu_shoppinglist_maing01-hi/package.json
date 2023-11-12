@@ -15,7 +15,11 @@
     "uu5loaderg01": "^1.6.1",
     "uu_plus4u5g02": "^1.22.2",
     "uu_plus4u5g02-app": "^1.22.2",
-    "uu_plus4u5g02-elements": "^1.22.2"
+    "uu_plus4u5g02-elements": "^1.22.2",
+    "uu5g05-dev": "^1.22.1",
+    "uu5tilesg02": "^2.11.0",
+    "uu5tilesg02-controls": "^2.11.0",
+    "uu5tilesg02-elements": "^2.11.0"
   },
   "uuBuildSettings": {
     "externals": {}
