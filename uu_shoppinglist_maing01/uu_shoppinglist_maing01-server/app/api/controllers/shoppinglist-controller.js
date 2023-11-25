@@ -3,34 +3,22 @@ const ShoppinglistAbl = require("../../abl/shoppinglist-abl.js");
 
 class ShoppinglistController {
     create(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ShoppinglistAbl.create(awid, dtoIn)
+        return ShoppinglistAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
     update(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ShoppinglistAbl.update(awid, dtoIn)
+        return ShoppinglistAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
     delete(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ShoppinglistAbl.delete(awid, dtoIn)
+        return ShoppinglistAbl.delete(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
     leave(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ShoppinglistAbl.leave(awid, dtoIn)
+        return ShoppinglistAbl.leave(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
+    }
+    get(ucEnv) {
+        return ShoppinglistAbl.get(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
     list(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ShoppinglistAbl.list(awid, dtoIn)
+        return ShoppinglistAbl.list(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
 }
 

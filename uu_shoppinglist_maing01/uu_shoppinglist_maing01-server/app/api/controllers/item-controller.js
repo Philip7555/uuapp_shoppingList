@@ -3,22 +3,13 @@ const ItemAbl = require("../../abl/item-abl.js");
 
 class ItemController {
     create(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ItemAbl.create(awid, dtoIn)
+        return ItemAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
     update(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ItemAbl.update(awid, dtoIn)
+        return ItemAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
     delete(ucEnv) {
-        let awid = ucEnv.uri._awid;
-        let dtoIn = ucEnv._dtoIn;
-
-        return ItemAbl.delete(awid, dtoIn)
+        return ItemAbl.delete(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession())
     }
 }
 

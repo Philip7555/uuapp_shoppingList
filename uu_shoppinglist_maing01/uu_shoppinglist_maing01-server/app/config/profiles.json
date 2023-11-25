@@ -28,35 +28,39 @@
       },
       "shoppinglist/create": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
       },
       "shoppinglist/update": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
       },
       "shoppinglist/delete": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
       },
       "shoppinglist/leave": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
+      },
+      "shoppinglist/get": {
+        "sysStateList": ["active"],
+        "profileList": ["Authenticated"]
       },
       "shoppinglist/list": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
       },
       "item/create": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
       },
       "item/update": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
       },
       "item/delete": {
         "sysStateList": ["active"],
-        "profileList": ["Public"]
+        "profileList": ["Authenticated"]
       }
     }
   }
