@@ -19,11 +19,6 @@ const Calls = {
   //   return Calls.call("get", commandUri, dtoIn);
   // },
 
-  getAnimalList() {
-    const commandUri = Calls.getCommandUri("getAnimalList");
-    return Calls.call("get", commandUri);
-  },
-
   loadIdentityProfiles() {
     const commandUri = Calls.getCommandUri("sys/uuAppWorkspace/initUve");
     return Calls.call("get", commandUri);
@@ -42,28 +37,6 @@ const Calls = {
   async initAndGetWorkspace(dtoInData) {
     await Calls.initWorkspace(dtoInData);
     return await Calls.getWorkspace();
-  },
-
-  Shoppinglist: {
-    list(dtoIn) {
-      const commandUri = Calls.getCommandUri("shoppinglist/list");
-      return Calls.call("get", commandUri, dtoIn);
-    },
-
-    create(dtoIn) {
-      const commandUri = Calls.getCommandUri("shoppinglist/create");
-      return Calls.call("post", commandUri, dtoIn);
-    },
-
-    update(dtoIn) {
-      const commandUri = Calls.getCommandUri("shoppinglist/update");
-      return Calls.call("post", commandUri, dtoIn);
-    },
-
-    delete(dtoIn) {
-      const commandUri = Calls.getCommandUri("shoppinglist/delete");
-      return Calls.call("post", commandUri, dtoIn);
-    },
   },
 
   getCommandUri(useCase, baseUri = Environment.appBaseUri) {

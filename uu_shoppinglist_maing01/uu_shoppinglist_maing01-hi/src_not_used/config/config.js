@@ -2,7 +2,7 @@
 // Manual changes to this file are discouraged, if values are inconsistent with package.json setting.
 import { Utils } from "uu5g05";
 
-const TAG = "UunBsfyWinterg2023.";
+const TAG = "UuShoppinglist.";
 
 export default {
   TAG,

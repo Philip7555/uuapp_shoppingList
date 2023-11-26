@@ -1,10 +1,11 @@
-// This file was auto-generated according to the "namespace" setting in package.json.
-// Manual changes to this file are discouraged, if values are inconsistent with package.json setting.
 import { Utils } from "uu5g05";
+import Config from "../../config/config.js";
 
-const TAG = "UunBsfyWinterg2023.";
+const TAG = Config.TAG + "ShoppingListDetail.";
 
 export default {
+  ...Config,
+
   TAG,
   Css: Utils.Css.createCssModule(
     TAG.replace(/\.$/, "")

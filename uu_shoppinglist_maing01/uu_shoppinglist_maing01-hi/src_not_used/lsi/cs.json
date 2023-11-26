@@ -1,7 +1,7 @@
 {
-  "appName": "Aplikace uunBsfy",
+  "appName": "Aplikace uuShoppinglist",
   "About": {
-    "header": "O aplikaci uunBsfy",
+    "header": "O aplikaci uuShoppinglist",
     "creatorsHeader": "Tvůrci aplikace",
     "termsOfUse": "Podmínky užívání"
   },
@@ -30,8 +30,8 @@
     "initialize": "Inicializovat"
   },
   "Menu": {
+    "shoppinglist": "Nakupní seznam",
     "home": "Vítejte",
-    "ivo": "Ivošek",
     "about": "O aplikaci"
   }
 }

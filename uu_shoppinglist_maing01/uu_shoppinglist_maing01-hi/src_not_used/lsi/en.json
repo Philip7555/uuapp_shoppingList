@@ -1,7 +1,7 @@
 {
-  "appName": "Application uunBsfy",
+  "appName": "Application uuShoppinglist",
   "About": {
-    "header": "About application uunBsfy",
+    "header": "About application uuShoppinglist",
     "creatorsHeader": "Application creators",
     "termsOfUse": "Terms of use"
   },
@@ -30,8 +30,8 @@
     "initialize": "Initialize"
   },
   "Menu": {
+    "shoppinglist": "Shoppimg list",
     "home": "Welcome",
-    "ivo": "My little precious",
     "about": "About Application"
   }
 }

@@ -4,21 +4,23 @@ import Uu5Elements from "uu5g05-elements";
 import Plus4U5 from "uu_plus4u5g02";
 import Plus4U5App from "uu_plus4u5g02-app";
 
-import UserProvider from "./user-list/user-provider.js";
-
 import Config from "./config/config.js";
-import ShoppingListListProvider from "./shopping-list-list/shopping-list-list-provider.js";
-import ShoppingListList from "../routes/shopping-list-list.js";
+import Home from "../routes/home.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
-const ShoppingListDetail = Utils.Component.lazy(() => import("../routes/shopping-list-detail.js"));
-
+const ShoppingList = Utils.Component.lazy(() => import("../routes/ShoppingList.js"));
+const About = Utils.Component.lazy(() => import("../routes/about.js"));
+const InitAppWorkspace = Utils.Component.lazy(() => import("../routes/init-app-workspace.js"));
+const ControlPanel = Utils.Component.lazy(() => import("../routes/control-panel.js"));
 
 const ROUTE_MAP = {
-  "": { redirect: "shoppingListList" },
-  shoppingListList: (props) => <ShoppingListList {...props} />,
-  shoppingListDetail: (props) => <ShoppingListDetail {...props} />,
+  "": { redirect: "home" },
+  home: (props) => <Home {...props} />,
+  shoppinglist: (props) => <ShoppingList {...props} />,
+  about: (props) => <About {...props} />,
+  "sys/uuAppWorkspace/initUve": (props) => <InitAppWorkspace {...props} />,
+  controlPanel: (props) => <ControlPanel {...props} />,
   "*": () => (
     <Uu5Elements.Text category="story" segment="heading" type="h1">
       Not Found
@@ -57,11 +59,7 @@ const Spa = createVisualComponent({
     return (
       <Plus4U5.SpaProvider initialLanguageList={["en", "cs"]}>
         <Uu5Elements.ModalBus>
-          <UserProvider>
-            <ShoppingListListProvider>
-              <Plus4U5App.Spa routeMap={ROUTE_MAP} />
-            </ShoppingListListProvider>
-          </UserProvider>
+          <Plus4U5App.Spa routeMap={ROUTE_MAP} />
         </Uu5Elements.ModalBus>
       </Plus4U5.SpaProvider>
     );
