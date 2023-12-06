@@ -60,7 +60,7 @@ class ShoppinglistAbl {
 
         const uuIdentity = session.getIdentity().getUuIdentity();
         if (shoppinglist.uuIdentity !== uuIdentity) {
-            throw new Errors.Update.UserNotAuthorized({ uuAppErrorMap }, { uuIdentity });
+            throw new Errors.Update.UserNotAuthorized({ uuAppErrorMap }, { uuIdentity:uuIdentity });
         }
 
         const uuObject = {
@@ -147,13 +147,13 @@ class ShoppinglistAbl {
 
         const shoppinglist = await this.dao.get(awid, dtoIn.id);
         if (!shoppinglist) {
-            throw new Errors.Leave.ShoppinglistDoesNotExist({ uuAppErrorMap }, { id: dtoIn.id });
+            throw new Errors.Get.ShoppinglistDoesNotExist({ uuAppErrorMap }, { id: dtoIn.id });
         }
 
         const uuIdentity = session.getIdentity().getUuIdentity();
         const Index = shoppinglist.ReadersIdentitys.findIndex(a => a.uuIdentity === uuIdentity);
         if ((Index<0) && (shoppinglist.uuIdentity !== uuIdentity)) {
-            throw new Errors.Leave.UserNotAuthorized({ uuAppErrorMap }, { uuIdentity });
+            throw new Errors.Get.UserNotAuthorized({ uuAppErrorMap }, { uuIdentity });
         }
 
         const dtoOut = {...shoppinglist, uuAppErrorMap}

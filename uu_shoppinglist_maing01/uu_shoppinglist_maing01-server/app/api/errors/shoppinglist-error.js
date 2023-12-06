@@ -27,7 +27,7 @@ const Update = {
   ShoppinglistDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Update.UC_CODE}shoppinglistDoesNotExist`;
+      this.code = `${Update.UC_CODE}/shoppinglistDoesNotExist`;
       this.message = "Shoppinglist does not exist.";
     }
   },
@@ -35,7 +35,7 @@ const Update = {
   UserNotAuthorized: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Update.UC_CODE}userNotAuthorized`;
+      this.code = `${Update.UC_CODE}/userNotAuthorized`;
       this.message = "User not authorized.";
     }
   }
@@ -55,7 +55,7 @@ const Delete = {
   ShoppinglistDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Delete.UC_CODE}shoppinglistDoesNotExist`;
+      this.code = `${Delete.UC_CODE}/shoppinglistDoesNotExist`;
       this.message = "Shoppinglist does not exist.";
     }
   },
@@ -63,7 +63,7 @@ const Delete = {
   UserNotAuthorized: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Delete.UC_CODE}userNotAuthorized`;
+      this.code = `${Delete.UC_CODE}/userNotAuthorized`;
       this.message = "User not authorized.";
     }
   }
@@ -83,7 +83,7 @@ const Leave = {
   ShoppinglistDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Leave.UC_CODE}shoppinglistDoesNotExist`;
+      this.code = `${Leave.UC_CODE}/shoppinglistDoesNotExist`;
       this.message = "Shoppinglist does not exist.";
     }
   },
@@ -91,7 +91,7 @@ const Leave = {
   UserNotAuthorized: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Leave.UC_CODE}userNotAuthorized`;
+      this.code = `${Leave.UC_CODE}/userNotAuthorized`;
       this.message = "User not authorized.";
     }
   }
@@ -111,7 +111,7 @@ const Get = {
   ShoppinglistDoesNotExist: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Get.UC_CODE}shoppinglistDoesNotExist`;
+      this.code = `${Get.UC_CODE}/shoppinglistDoesNotExist`;
       this.message = "Shoppinglist does not exist.";
     }
   },
@@ -119,7 +119,7 @@ const Get = {
   UserNotAuthorized: class extends ShoppinglistMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${Get.UC_CODE}userNotAuthorized`;
+      this.code = `${Get.UC_CODE}/userNotAuthorized`;
       this.message = "User not authorized.";
     }
   }
