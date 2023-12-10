@@ -9,6 +9,7 @@ import UserProvider from "./user-list/user-provider.js";
 import Config from "./config/config.js";
 import ShoppingListListProvider from "./shopping-list-list/shopping-list-list-provider.js";
 import ShoppingListList from "../routes/shopping-list-list.js";
+import ThemeProvider from "./theme-provider.js"
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -59,7 +60,9 @@ const Spa = createVisualComponent({
         <Uu5Elements.ModalBus>
           <UserProvider>
             <ShoppingListListProvider>
-              <Plus4U5App.Spa routeMap={ROUTE_MAP} />
+              <ThemeProvider>
+                <Plus4U5App.Spa routeMap={ROUTE_MAP} />
+              </ThemeProvider>
             </ShoppingListListProvider>
           </UserProvider>
         </Uu5Elements.ModalBus>

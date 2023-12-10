@@ -32,6 +32,12 @@
       "accessCode2": "6YNV1u5G290-J!%83708141q51_!763n",
       "uuIdentity": "3039-912-8064-0000",
       "profileList": ["Authenticated"]
+    },
+    "Authenticated2": {
+      "accessCode1": "aladin132",
+      "accessCode2": "koberec90",
+      "uuIdentity": "9567-9902-2725-0000",
+      "profileList": ["Authenticated"]
     }
   },
   "log_level": "FATAL",

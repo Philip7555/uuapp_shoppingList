@@ -1,12 +1,13 @@
 //@@viewOn:imports
 import { createVisualComponent, Lsi, useRoute } from "uu5g05";
 import Plus4U5App from "uu_plus4u5g02-app";
-
+import { Toggle } from "uu5g05-elements";
 import { useUserContext } from "./user-list/user-context.js";
 import User from "../bricks/user.js";
 
 import Config from "./config/config.js";
 import importLsi from "../lsi/import-lsi.js";
+import { useThemeContext } from "./theme-context.js";
 //@@viewOff:imports
 
 //@@viewOn:constants
@@ -35,10 +36,12 @@ const PositionBar = createVisualComponent({
     //@@viewOn:private
     const { userList, loggedUser, setLoggedUser } = useUserContext();
     const [, setRoute] = useRoute();
+    const [isDark, setIsDark] = useThemeContext();
 
     const actionList = [
+      {component: <Toggle iconOn="uugdsstencil-weather-sun" iconOff="uugdsstencil-weather-moon" value={isDark} onChange={setIsDark}/>},
       {
-        children: "Seznam nákupních seznamů",
+        children: <Lsi import={importLsi} path={["Menu", "listofshoppinglists"]} />,
         onClick: () => setRoute("shoppingListList"),
         collapsed: false,
       },

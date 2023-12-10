@@ -1,7 +1,8 @@
 //@@viewOn:imports
-import { Utils, createVisualComponent, useState, useRoute, useMemo } from "uu5g05";
+import { Utils, createVisualComponent, useState, useRoute, useMemo, Lsi } from "uu5g05";
 import Uu5Elements, { Modal } from "uu5g05-elements";
 import { Form, FormText, SubmitButton } from "uu5g05-forms";
+import importLsi from "../../lsi/import-lsi.js";
 
 import { withRoute } from "uu_plus4u5g02-app";
 
@@ -43,9 +44,6 @@ let View = createVisualComponent({
     //@@viewOn:private
     //const { userShoppingList, handleCreate } = useShoppingListListContext();
     const { data, handlerMap } = useShoppingListListContext();
-    console.log("VIEW")
-    console.log(data)
-    console.log(handlerMap.create)
     const handleCreate = handlerMap.create
     const [showOpenedOnly, setShowOpenedOnly] = useState(true);
     const [isCreateModalOpened, setIsCreateModalOpened] = useState();
@@ -78,21 +76,21 @@ let View = createVisualComponent({
     return (
       <Uu5Tiles.ControllerProvider data={filteredShoppingItemList || []}>
         <Uu5Elements.Block
-          header={"Seznam nákupních seznamů"}
+          header={<Lsi import={importLsi} path={["Menu", "listofshoppinglists"]} />}
           headerSeparator
           headerType={"title"}
           actionList={[
             { component: <Uu5TilesControls.SearchButton /> },
             {
               icon: "uugds-plus",
-              children: "Vytvořit",
+              children: <Lsi import={importLsi} path={["Menu", "create"]} />,
               colorScheme: "positive",
               significance: "highlighted",
               onClick: () => setIsCreateModalOpened(true),
             },
             {
               icon: showOpenedOnly ? "uugds-lock-closed" : "uugds-lock-open",
-              children: showOpenedOnly ? "Zobrazit i uzavřené" : "Zobrazit pouze otevřené",
+              children: showOpenedOnly ? <Lsi import={importLsi} path={["Menu", "alsoshowcloused"]} />:<Lsi import={importLsi} path={["Menu", "showonlyopen"]} />,
               colorScheme: "grey",
               significance: "highlighted",
               onClick: () => setShowOpenedOnly((current) => !current),
@@ -110,7 +108,7 @@ let View = createVisualComponent({
               }}
             >
               <Modal
-                header={"Vytvořit nákupní seznam"}
+                header={<Lsi import={importLsi} path={["Shoppinglist", "createshoppinglist"]} />}
                 open={true}
                 onClose={() => setIsCreateModalOpened(false)}
                 footer={
@@ -119,7 +117,7 @@ let View = createVisualComponent({
                   </div>
                 }
               >
-                <FormText label={"Název"} name={"name"} required />
+                <FormText label={<Lsi import={importLsi} path={["Shoppinglist", "name"]} />} name={"name"} required />
               </Modal>
             </Form.Provider>
           )}

@@ -5,6 +5,7 @@ import { withRoute } from "uu_plus4u5g02-app";
 import Config from "./config/config.js";
 import PositionBar from "../core/position-bar.js";
 
+import { useThemeContext } from "../core/theme-context.js"
 import View from "../core/shopping-list-detail/view.js";
 //@@viewOff:imports
 
@@ -31,7 +32,8 @@ let ShoppingListDetail = createVisualComponent({
   //@@viewOff:defaultProps
 
   render(props) {
-    //@@viewOn:private
+    //@@viewOn:private    
+    const [isDark] = useThemeContext();
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -40,7 +42,7 @@ let ShoppingListDetail = createVisualComponent({
     //@@viewOn:render
     const attrs = Utils.VisualComponent.getAttrs(props);
     return (
-      <div {...attrs}>
+      <div {...attrs}  style={{ backgroundColor: isDark ? "#000000":undefined, height: '100vh'}}>
         <PositionBar />
         <div className={Config.Css.css({ padding: "16px 32px" })}>
           <View />

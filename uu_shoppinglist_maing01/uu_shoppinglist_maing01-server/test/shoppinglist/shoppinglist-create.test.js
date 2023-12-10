@@ -17,7 +17,7 @@ describe("Testing the Shoppinglist create uuCmd...", () => {
     let dtoIn = {
       name: "My shopping list",
     };
-
+    
     let result = await TestHelper.executePostCommand("shoppinglist/create", dtoIn, session);
   
     expect(result.status).toEqual(200);

@@ -51,8 +51,6 @@ const View = createVisualComponent({
         return shoppingList.data.id === detailId;
       });
     }, [shoppingListList, detailId]);
-    console.log("shoppingListDetailData")
-    console.log(shoppingListDetailData)
     const shoppingListDetail = shoppingListDetailData?.data
     const isOwner = loggedUser.id === shoppingListDetail?.owner;
     const isMember = loggedUser.id === shoppingListDetail?.owner || shoppingListDetail?.memberList?.includes(loggedUser.id);

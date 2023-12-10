@@ -73,4 +73,18 @@ describe("Testing the Shoppinglist get uuCmd...", () => {
       expect(e.message).toEqual("Shoppinglist does not exist.")
     }
   });
+
+  test("A4 - userNotAuthorized", async () => {
+    let dtoIn = {
+      id: result.id
+    };
+    session = await TestHelper.login("Authenticated2", false);
+    expect.assertions(2)
+    try{
+      await TestHelper.executeGetCommand("shoppinglist/get", dtoIn, session);
+    }catch (e){
+      expect(e.code).toEqual("uu-shoppinglist-main/shoppinglist/get/userNotAuthorized");
+      expect(e.message).toEqual("User not authorized.")
+    }
+  });
 });

@@ -30,8 +30,20 @@
     "initialize": "Inicializovat"
   },
   "Menu": {
-    "home": "Vítejte",
-    "ivo": "Ivošek",
-    "about": "O aplikaci"
+    "listofshoppinglists": "Seznam nákupních seznamů",
+    "create": "Vytvořit",
+    "alsoshowcloused": "Zobrazit i uzavřené seznamy",
+    "showonlyopen":"Zobrazit pouze otevřené seznamy"
+  },
+  "Shoppinglist": {
+    "owner": "Vlastník",
+    "name": "Název",
+    "createshoppinglist":"Vytvořit nákupní seznam",
+    "open":"Otevřít",
+    "close": "Uzavřít",
+    "delete": "Smazat",
+    "alsoshowcloused": "Zobrazit i uzavřené",
+    "memberlist":"Seznam členů",
+    "newmember":"Nový člen"
   }
 }

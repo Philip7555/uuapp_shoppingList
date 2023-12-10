@@ -1,12 +1,13 @@
 //@@viewOn:imports
 import React from "react";
-import { createVisualComponent, useRoute } from "uu5g05";
+import { createVisualComponent, useRoute, Lsi } from "uu5g05";
 import { Grid, ListItem, Icon } from "uu5g05-elements";
 
 import Uu5TilesElements from "uu5tilesg02-elements";
-
+import importLsi from "../../lsi/import-lsi.js";
 import User from "../../bricks/user.js";
 import { useUserContext } from "../user-list/user-context.js";
+import { useThemeContext } from "../theme-context.js"
 
 import Config from "./config/config.js";
 //@@viewOff:imports
@@ -26,16 +27,11 @@ const Tile = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-    console.log("TILE props")
-    console.log(props)
     let { data, ...otherProps } = props;
+    const [ isDark ] = useThemeContext();
     const { userList } = useUserContext();
     const [, setRoute] = useRoute();
-    console.log(data)
-    console.log(data.data)
-    console.log(data.data)
     const owner = userList.find((user) => user.id === data.data.owner);
-    console.log(owner)
     const itemListCount = data.data.itemList?.length || 0;
     const checkedItemListCount = data.data.itemList.filter((item) => item.checked)?.length || 0;
     //@@viewOff:private
@@ -45,7 +41,9 @@ const Tile = createVisualComponent({
 
     //@@viewOn:render
     return (
-      <Uu5TilesElements.Tile {...otherProps} headerOverlap>
+      <Uu5TilesElements.Tile {...otherProps} headerOverlap                 
+      significance={isDark ? "highlighted" : undefined}
+      >
         {({ padding }) => {
           return (
             <Grid
@@ -99,7 +97,7 @@ const Tile = createVisualComponent({
                     gap: "8px",
                   }}
                 >
-                  <div style={{ fontStyle: "italic", color: "grey" }}>vlastník: </div>
+                  <div style={{ fontStyle: "italic", color: "grey" }}><Lsi import={importLsi} path={["Shoppinglist", "owner"]} />:</div>
                   <User img={owner.img} name={owner.name} />
                 </div>
               </div>

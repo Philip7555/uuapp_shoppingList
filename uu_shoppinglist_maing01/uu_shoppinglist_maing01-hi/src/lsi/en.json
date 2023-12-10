@@ -30,8 +30,20 @@
     "initialize": "Initialize"
   },
   "Menu": {
-    "home": "Welcome",
-    "ivo": "My little precious",
-    "about": "About Application"
+    "listofshoppinglists": "List of shopping lists",
+    "create": "Create",
+    "alsoshowcloused": "Also show cloused lists",
+    "showonlyopen":"Show only open lists"
+  },
+  "Shoppinglist": {
+    "owner": "Owner",
+    "name": "Name",
+    "createshoppinglist":"Create shopping list",
+    "open":"Open",
+    "close": "Close",
+    "delete": "Delete",
+    "alsoshowcloused": "Also show cloused",
+    "memberlist":"Member list",
+    "newmember":"New member"
   }
 }

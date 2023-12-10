@@ -1,12 +1,12 @@
 //@@viewOn:imports
-import { createVisualComponent, Utils, useRoute, useState } from "uu5g05";
+import { createVisualComponent, Utils, useRoute, useState, Lsi } from "uu5g05";
 import { Block, Icon } from "uu5g05-elements";
 import { Checkbox } from "uu5g05-forms";
-
+import importLsi from "../../lsi/import-lsi.js";
 import Uu5Tiles from "uu5tilesg02";
 import Uu5TilesControls from "uu5tilesg02-controls";
 import Uu5TilesElements from "uu5tilesg02-elements";
-
+import { useThemeContext } from "../theme-context.js";
 import TextInput from "./text-input.js";
 
 import Config from "../config/config.js";
@@ -18,7 +18,7 @@ import Config from "../config/config.js";
 const FILTER_LIST = [
   {
     key: "showChecked",
-    label: "Zobrazit i splněné",
+    label: <Lsi import={importLsi} path={["Shoppinglist", "alsoshowcloused"]} />,
     filter: (item, value) => {
       if (value) return true;
       else return !item.checked;
@@ -43,7 +43,7 @@ const ItemList = createVisualComponent({
   render({ isOwner, shoppingListDetail, handleUpdate, handleToggleState, handleDelete }) {
     //@@viewOn:private
     const [filterList, setFilterList] = useState([]);
-
+    const [isDark] = useThemeContext();
     function onFilterChange(e) {
       setFilterList(e.data.filterList);
     }
@@ -63,6 +63,7 @@ const ItemList = createVisualComponent({
       >
         <Block
           card={"full"}
+          significance={isDark ? "highlighted" : undefined}
           header={({ style }) => {
             return (
               <>
@@ -78,13 +79,13 @@ const ItemList = createVisualComponent({
           actionList={[
             {
               icon: shoppingListDetail.archived ? "uugds-lock-open" : "uugds-lock-closed",
-              children: shoppingListDetail.archived ? "Otevřít" : "Uzavřít",
+              children: shoppingListDetail.archived ? <Lsi import={importLsi} path={["Shoppinglist", "open"]} /> : <Lsi import={importLsi} path={["Shoppinglist", "close"]} />,
               onClick: () => handleToggleState(shoppingListDetail),
               hidden: !isOwner,
             },
             {
               icon: "uugds-delete",
-              children: "Smazat",
+              children: <Lsi import={importLsi} path={["Shoppinglist", "delete"]} />,
               colorScheme: "negative",
               onClick: () => {
                 handleDelete(shoppingListDetail);
@@ -93,7 +94,6 @@ const ItemList = createVisualComponent({
               hidden: !isOwner,
             },
             { component: <Uu5TilesControls.FilterButton /> },
-            { component: <Uu5TilesControls.SearchButton /> },
           ]}
           headerSeparator={true}
           contentMaxHeight={"60vh"}
